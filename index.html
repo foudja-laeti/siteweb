@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Bistro Moderne | Restaurant gastronomique</title>
+<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Le Bistro <span>Moderne</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Une expérience culinaire unique</h1>
+            <p>Découvrez des saveurs authentiques dans un cadre élégant et chaleureux</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn">Découvrir la carte</a>
+                <a href="#reservation" class="btn btn-outline">Réserver une table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Notre restaurant">
+            </div>
+            <div class="about-content">
+                <h2>Notre histoire</h2>
+                <p>Fondé en 2010, Le Bistro Moderne est né de la passion de notre chef étoilé, Jean-Luc Martin, pour la cuisine française revisitée avec une touche contemporaine.</p>
+                <p>Notre établissement allie tradition et innovation, en proposant des plats élaborés à partir de produits frais et locaux, sélectionnés avec soin auprès de producteurs de la région.</p>
+                <p>Dans un cadre chaleureux et raffiné, nous vous invitons à vivre une expérience gastronomique mémorable, où chaque détail a été pensé pour votre plaisir.</p>
+                <a href="apropos.html" class="btn">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spécialités -->
+    <section id="specialties" class="specialties">
+        <div class="container">
+            <h2 class="section-title">Nos spécialités</h2>
+            <p>Découvrez quelques-unes de nos créations signature</p>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Filet de boeuf">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Filet de boeuf wagyu</h3>
+                        <p>Filet de boeuf wagyu, purée de céleri-rave, champignons sauvages et sauce au vin rouge</p>
+                        <div class="dish-price">42€</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bar de ligne">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Bar de ligne rôti</h3>
+                        <p>Bar de ligne rôti, artichauts poivrade, fenouil confit et émulsion au citron yuzu</p>
+                        <div class="dish-price">36€</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Risotto">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Risotto aux cèpes</h3>
+                        <p>Risotto crémeux aux cèpes de printemps, parmesan 24 mois et huile de truffe noire</p>
+                        <div class="dish-price">28€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carte -->
+    <section id="menu" class="menu-preview">
+        <div class="container">
+            <h2 class="section-title">Notre carte</h2>
+            <p>Une sélection de plats élaborés avec des produits de saison</p>
+            
+            <div class="menu-tabs">
+                <button class="tab-btn active">Entrées</button>
+                <button class="tab-btn">Plats principaux</button>
+                <button class="tab-btn">Desserts</button>
+            </div>
+            
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>Foie gras mi-cuit</h4>
+                        <p>Foie gras de canard mi-cuit, chutney de figues et pain d'épices</p>
+                    </div>
+                    <div class="item-price">24€</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>Tartare de saumon</h4>
+                        <p>Tartare de saumon bio, avocat, citron vert et coriandre fraîche</p>
+                    </div>
+                    <div class="item-price">18€</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>Salade de homard</h4>
+                        <p>Salade de homard breton, mangue, avocat et vinaigrette passion</p>
+                    </div>
+                    <div class="item-price">32€</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>Carpaccio de boeuf</h4>
+                        <p>Carpaccio de boeuf angus, roquette, parmesan et huile de truffe</p>
+                    </div>
+                    <div class="item-price">22€</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">Voir la carte complète</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation -->
+    <section id="reservation" class="reservation">
+        <div class="container">
+            <h2 class="section-title">Réservation</h2>
+            <p>Réservez votre table pour une expérience gastronomique inoubliable</p>
+            
+            <form class="reservation-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Heure</label>
+                    <input type="time" id="time" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Nombre de personnes</label>
+                    <select id="guests" class="form-control" required>
+                        <option value="1">1 personne</option>
+                        <option value="2">2 personnes</option>
+                        <option value="3">3 personnes</option>
+                        <option value="4">4 personnes</option>
+                        <option value="5">5 personnes</option>
+                        <option value="6">6 personnes</option>
+                        <option value="7">7 personnes ou plus</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="message">Message spécial (optionnel)</label>
+                    <textarea id="message" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1; text-align: center;">
+                    <button type="submit" class="btn">Réserver maintenant</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Le Bistro Moderne</h3>
+                    <p>Une expérience culinaire unique alliant tradition et innovation dans un cadre élégant et chaleureux.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Horaires</h3>
+                    <p>Lundi - Vendredi: 12h00 - 14h30, 19h00 - 22h30</p>
+                    <p>Samedi: 12h00 - 15h00, 19h00 - 23h00</p>
+                    <p>Dimanche: 12h00 - 15h00</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 12 Rue Gastronomique, 75001 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 42 60 30 40</p>
+                    <p><i class="fas fa-envelope"></i> contact@lebistromoderne.fr</p>
+                    <a href="contact.html" class="btn" style="margin-top: 15px; padding: 8px 20px;">Nous contacter</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Le Bistro Moderne. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="./script.js"></script>
+</body>
+</html>
