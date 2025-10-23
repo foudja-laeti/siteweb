@@ -1,0 +1,895 @@
+voila le code que je veux que tu commit pour que l'on ai les memes choses c'est le templete que j'ai utilisé.                                                                                                   <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - FoodReserve | Réservation de Nourriture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --dark-orange: #E55A2B;
+            --light-orange: #FF8C61;
+            --accent-orange: #FFA573;
+            --white: #FFFFFF;
+            --off-white: #F9F9F9;
+            --text-dark: #2C2C2C;
+            --text-gray: #666666;
+            --shadow: rgba(255, 107, 53, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo::before {
+            content: "🍽";
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--dark-orange) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center no-repeat;
+            background-size: cover;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-orange);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12rem;
+            animation: float 3s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Search Section */
+        .search-section {
+            max-width: 1000px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 1rem;
+        }
+
+        .search-input {
+            padding: 1rem 1.5rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px var(--shadow);
+        }
+
+        .search-btn {
+            padding: 1rem 2.5rem;
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background: var(--dark-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .categories-section h2 {
+            text-align: center;
+            color: var(--primary-orange);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .category-card h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: var(--white);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured-container h2 {
+            text-align: center;
+            color: var(--primary-orange);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .dish-card {
+            background: var(--off-white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .dish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--light-orange) 0%, var(--primary-orange) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dish-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dish-card:hover .dish-image::before {
+            opacity: 1;
+        }
+
+        .dish-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--white);
+            color: var(--primary-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dish-info {
+            padding: 1.5rem;
+        }
+
+        .dish-info h3 {
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dish-info .restaurant {
+            color: var(--primary-orange);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .dish-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .dish-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dish-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+        }
+
+        .order-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .order-btn:hover {
+            background: var(--dark-orange);
+            transform: scale(1.05);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            color: var(--primary-orange);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .step-card h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--dark-orange) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--white);
+            margin: 4rem 0 0 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                height: 300px;
+                font-size: 8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">FoodReserve</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Savourez les Meilleurs Plats de Douala</h1>
+                <p>Commandez vos plats préférés et recevez-les chauds en moins de 30 minutes. Plus de 150 restaurants partenaires à votre service.</p>
+                <div class="hero-buttons">
+                    <a href="#search" class="btn btn-primary">Commander Maintenant</a>
+                    <a href="about.html" class="btn btn-secondary">En Savoir Plus</a>
+                </div>
+            </div>
+            <div class="hero-image">🍕</div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search">
+        <div class="search-card">
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" placeholder="Rechercher un plat..." id="dishSearch">
+                <input type="text" class="search-input" placeholder="Votre adresse..." id="addressSearch">
+                <button type="submit" class="search-btn">🔍 Rechercher</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <h2>Catégories Populaires</h2>
+        <div class="categories-grid">
+            <div class="category-card" data-category="pizza">
+                <div class="category-icon">🍕</div>
+                <h3>Pizza</h3>
+                <p>45 restaurants</p>
+            </div>
+
+            <div class="category-card" data-category="burger">
+                <div class="category-icon">🍔</div>
+                <h3>Burgers</h3>
+                <p>38 restaurants</p>
+            </div>
+
+            <div class="category-card" data-category="africain">
+                <div class="category-icon">🍛</div>
+                <h3>Africain</h3>
+                <p>62 restaurants</p>
+            </div>
+
+            <div class="category-card" data-category="sushi">
+                <div class="category-icon">🍣</div>
+                <h3>Sushi</h3>
+                <p>18 restaurants</p>
+            </div>
+
+            <div class="category-card" data-category="desserts">
+                <div class="category-icon">🍰</div>
+                <h3>Desserts</h3>
+                <p>27 restaurants</p>
+            </div>
+
+            <div class="category-card" data-category="boissons">
+                <div class="category-icon">🥤</div>
+                <h3>Boissons</h3>
+                <p>41 restaurants</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="featured-container">
+            <h2>Plats Populaires</h2>
+            <div class="featured-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        🍕
+                        <span class="dish-badge">⭐ Populaire</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Pizza Margherita</h3>
+                        <div class="restaurant">🏪 Chez Antonio</div>
+                        <p>Sauce tomate, mozzarella fraîche, basilic et huile d'olive extra vierge</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">3 500 FCFA</span>
+                            <button class="order-btn">Commander</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <div class="dish-image">
+                        🍔
+                        <span class="dish-badge">🔥 Tendance</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Burger Deluxe</h3>
+                        <div class="restaurant">🏪 Burger House</div>
+                        <p>Double steak, bacon croustillant, fromage cheddar et sauce maison</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">4 200 FCFA</span>
+                            <button class="order-btn">Commander</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <div class="dish-image">
+                        🍛
+                        <span class="dish-badge">🇨🇲 Local</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Ndolé Complet</h3>
+                        <div class="restaurant">🏪 La Terrasse</div>
+                        <p>Ndolé aux crevettes, plantain mûr et riz accompagné</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">2 800 FCFA</span>
+                            <button class="order-btn">Commander</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <div class="dish-image">
+                        🍣
+                        <span class="dish-badge">✨ Nouveau</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Sushi Mix</h3>
+                        <div class="restaurant">🏪 Tokyo Sushi</div>
+                        <p>Assortiment de 12 sushis et 6 makis avec sauce soja et wasabi</p>
+                        <div class="dish-footer">
+                            <span class="dish-price">6 500 FCFA</span>
+                            <button class="order-btn">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>Comment Ça Marche ?</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Choisissez</h3>
+                <p>Parcourez nos restaurants et sélectionnez vos plats préférés parmi des centaines d'options.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Commandez</h3>
+                <p>Passez votre commande en quelques clics et choisissez votre mode de paiement préféré.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Suivez</h3>
+                <p>Suivez votre commande en temps réel et recevez des notifications à chaque étape.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Dégustez</h3>
+                <p>Recevez vos plats chauds et savourez un moment délicieux en famille ou entre amis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à Commander ?</h2>
+        <p>Téléchargez notre application mobile et profitez de 20% de réduction sur votre première commande !</p>
+        <div class="hero-buttons">
+            <a href="#search" class="btn btn-primary">Commander Maintenant</a>
+            <a href="contact.html" class="btn btn-secondary">Nous Contacter</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>FoodReserve</h3>
+                <p>La meilleure plateforme de réservation et livraison de nourriture au Cameroun.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Restaurants</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Aide</a></li>
+                    <li><a href="#">Conditions</a></li>
+                    <li><a href="#">Confidentialité</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📞 +237 699 12 34 56</li>
+                    <li>✉ contact@foodreserve.cm</li>
+                    <li>📍 Douala, Cameroun</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FoodReserve. Tous droits réservés. | Fait avec ❤ à Douala</p>
+        </div>
+    </footer>
+<script>
+    // Search Form Handler
+    const searchForm = document.getElementById('searchForm');
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const dish = document.getElementById('dishSearch').value.trim();
+        const address = document.getElementById('addressSearch').value.trim();
+
+        if (!dish && !address) {
+            alert('⚠ Veuillez entrer au moins un critère de recherche');
+            return;
+        }
+
+        // Simulate search (ici tu peux intégrer la logique ou appel API)
+        alert(🔍 Recherche de "${dish || 'tous les plats'}" à "${address || 'toutes les zones'}"...\n\nFonctionnalité à implémenter.);
+    });
+</script>
+</body>
+</html>
